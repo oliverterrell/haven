@@ -1,6 +1,5 @@
 import { Router } from 'express';
 import { data } from '../data.js';
-import { cacheMiddleware } from '../middleware/cacheMiddleware.js';
 
 const apiRouter = Router();
 
@@ -13,7 +12,7 @@ apiRouter.get('/', (req, res, next) => {
   }
 });
 
-apiRouter.get('/companies', cacheMiddleware, (req, res, next) => {
+apiRouter.get('/companies', (req, res, next) => {
   try {
     const { cik, name, ticker, exchange } = req.query;
 
